@@ -3,11 +3,16 @@ import ContactForm from "./components/ContactForm/ContactForm";
 import SerchBox from "./components/SerchBox/SerchBox";
 import { useEffect, useState } from "react";
 import s from "./components/App.module.css"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchContacts } from "./redux/contactsOps";
 
 const App = () => {
   const contactsList = useSelector((state) => state.contacts.contacts.items);
   const noContact = "No contacts. Please add a new contact";
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
   return (
     <>
       <div className={s.Form}>

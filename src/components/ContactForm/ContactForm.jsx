@@ -2,7 +2,7 @@ import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import s from "./ContactForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/contactsOps";
 const ContactForm = () => {
     
     const contacts = useSelector((state) => state.contacts.contacts.items);
@@ -25,21 +25,11 @@ const ContactForm = () => {
       .required("поле обов'язкове"),
      });
     const handleSubmit = (values, actions) => {
-    const isCopy = contacts.some(
-      (contact) =>
-        contact.name.toLowerCase().trim() ===
-          values.name.toLowerCase().trim() && contact.phone === values.phone
-    );
-
-    if (isCopy) {
-      //setErrorMessage("Контакт із таким ім'ям або номером телефону вже існує.");
-      actions.setSubmitting(false);
-      return;
-    }
+    
+  
     const newConact = {
       name: values.name,
-      phone: values.phone,
-      id: crypto.randomUUID(),
+      number: values.phone,
         };   
     dispatch(addContact(newConact));
     actions.resetForm();
@@ -58,7 +48,7 @@ const ContactForm = () => {
                     <ErrorMessage
                         className={s.mesege}
                         name="name"
-                        component="p"
+                        component="h6"
                     />
                     <p className={s.text}>Phone number</p>
                     <Field className={s.field}  name="phone"
@@ -66,7 +56,7 @@ const ContactForm = () => {
                     ></Field>
                     <ErrorMessage
                         name="phone"
-                        component="p"
+                        component="h6"
             />
                     <button className={s.addbtn} type="submit">Add contact</button>
                 </Form>

@@ -7,11 +7,6 @@ const ContactList = () => {
   const contacts = contactsList.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase().trim())
   );
-  
-
-
-
-
     return (
          <ul  className={s.contactList}>
             {contacts.map(item => (
