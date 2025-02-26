@@ -8,7 +8,6 @@ export const fetchContacts = createAsyncThunk(
       const { data } = await axios.get(
         "https://67bd7a44321b883e790c9dcc.mockapi.io/contacts"
       );
-      console.log(data);
       return data;
     } catch (error) {
       console.error(error);
@@ -24,7 +23,6 @@ export const deleteContact = createAsyncThunk(
       const { data } = await axios.delete(
         `https://67bd7a44321b883e790c9dcc.mockapi.io/contacts/${id}`
       );
-      console.log(data);
       return data.id;
     } catch (error) {
       console.error(error);
