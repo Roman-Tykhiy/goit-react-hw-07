@@ -1,0 +1,21 @@
+.ContactItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    border: 2px solid rgba(54, 53, 51, 0.932);
+    border-radius: 20px;
+    width: 250px;
+    background-color:aliceblue;
+
+}
+.text {
+    font-family:'Times New Roman', Times, serif;
+}
+.deletebtn {
+    width: 80px;
+    border: 2px solid red;
+    border-radius: 20px;
+    color: red;
+
+}
