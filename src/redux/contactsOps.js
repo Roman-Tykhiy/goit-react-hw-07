@@ -6,7 +6,7 @@ export const fetchContacts = createAsyncThunk(
   async (body, thunkApi) => {
     try {
       const { data } = await axios.get(
-        "https://67bd7a44321b883e790c9dcc.mockapi.io/contacts1"
+        "https://67bd7a44321b883e790c9dcc.mockapi.io/contacts"
       );
       return data;
     } catch (error) {
